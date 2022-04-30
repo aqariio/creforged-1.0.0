@@ -1,29 +1,29 @@
 {
   "schemaVersion": 1,
-  "id": "creforged",
-  "version": "${version}",
+  "id": "oubliette",
+  "version": "1.0.0",
 
-  "name": "CombatReforged",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Oubliette",
+  "description": "Dungeons and catacombs",
   "authors": [
     "aqario"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://github.com/aqariio/creforged-1.0.0",
+    "sources": "https://github.com/aqariio/creforged-1.0.0"
   },
 
   "license": "MIT",
-  "icon": "assets/creforged/icon.png",
+  "icon": "assets/oubliette/icon.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
-      "aqario.creforged.CReforged"
+      "aqario.oubliette.Oubliette"
     ]
   },
   "mixins": [
-    "creforged.mixins.json"
+    "oubliette.mixins.json"
   ],
 
   "depends": {
