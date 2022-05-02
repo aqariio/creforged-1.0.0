@@ -1,7 +1,15 @@
 {
   "itemGroup.oubliette.oubliette": "CReforged",
+
   "item.oubliette.ruby": "Ruby",
+  "item.oubliette.bedrock_fragment": "Bedrock Fragment",
+
   "block.oubliette.iron_plating": "Iron Plating",
   "block.oubliette.tarnished_iron_plating": "Tarnished Iron Plating",
-  "block.oubliette.aged_bricks": "Aged Bricks"
+  "block.oubliette.aged_bricks": "Aged Bricks",
+  "block.oubliette.chiseled_aged_bricks": "Chiseled Aged Bricks",
+  "block.oubliette.aged_brick_slab": "Aged Brick Slab",
+  "block.oubliette.aged_brick_stairs": "Aged Brick Stairs",
+  "block.oubliette.aged_brick_wall": "Aged Brick Wall",
+  "block.oubliette.iron_gate": "Iron Gate"
 }

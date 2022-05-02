@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "aqario.oubliette.Oubliette"
+    ],
+    "client": [
+      "aqario.oubliette.OublietteClient"
     ]
   },
   "mixins": [
