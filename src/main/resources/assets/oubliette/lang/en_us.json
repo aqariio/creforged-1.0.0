@@ -1,5 +1,5 @@
 {
-  "itemGroup.oubliette.oubliette": "CReforged",
+  "itemGroup.oubliette.oubliette": "Oubliette",
 
   "item.oubliette.ruby": "Ruby",
   "item.oubliette.bedrock_fragment": "Bedrock Fragment",
@@ -11,5 +11,9 @@
   "block.oubliette.aged_brick_slab": "Aged Brick Slab",
   "block.oubliette.aged_brick_stairs": "Aged Brick Stairs",
   "block.oubliette.aged_brick_wall": "Aged Brick Wall",
-  "block.oubliette.iron_gate": "Iron Gate"
+  "block.oubliette.iron_gate": "Iron Gate",
+  "block.oubliette.iron_grate": "Iron Grate",
+
+  "advancements.adventure.bedrock_fragment.title": "A Fragment of Thought",
+  "advancements.adventure.bedrock_fragment.description": "Collect the shard of the broken blade"
 }

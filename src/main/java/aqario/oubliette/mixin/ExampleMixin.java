@@ -7,10 +7,11 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(TitleScreen.class)
-public class ExampleMixin {
-    @Inject(at = @At("HEAD"), method = "init()V")
-    private void init(CallbackInfo info) {
-        Oubliette.LOGGER.info("Oui oui, la baguette");
+@Mixin(StructureFeature.class)
+public interface ExampleMixin {
+    @Invoker
+    static <F extends StructureFeature<?>> F callRegister(String name, F structureFeature, GenerationStep.Feature step) {
+        throw new UnsupportedOperationException();
     }
 }
+

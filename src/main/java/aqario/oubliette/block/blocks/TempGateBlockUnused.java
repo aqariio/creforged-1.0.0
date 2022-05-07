@@ -1,4 +1,4 @@
-package aqario.oubliette.block.blocks;
+/* package aqario.oubliette.block.blocks;
 
 import net.minecraft.block.*;
 import net.minecraft.block.enums.DoorHinge;
@@ -25,6 +25,7 @@ import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.MathHelper;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -35,44 +36,32 @@ import org.jetbrains.annotations.Nullable;
 
 public class TempGateBlockUnused
         extends DoorBlock {
-    public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty OPEN = Properties.OPEN;
-    public static final EnumProperty<DoorHinge> HINGE = Properties.DOOR_HINGE;
     public static final BooleanProperty POWERED = Properties.POWERED;
+    public static final BooleanProperty IN_WALL = Properties.IN_WALL;
     public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
-    protected static final float field_31083 = 3.0f;
-    protected static final VoxelShape NORTH_SHAPE_A = Block.createCuboidShape(0.0, 0.0, 7.0, 8.0, 16.0, 9.0);
-    protected static final VoxelShape NORTH_SHAPE_B = Block.createCuboidShape(8.0, 0.0, 7.0, 16.0, 16.0, 9.0);
-    protected static final VoxelShape SOUTH_SHAPE_A = Block.createCuboidShape(0.0, 0.0, 7.0, 8.0, 16.0, 9.0);
-    protected static final VoxelShape SOUTH_SHAPE_B = Block.createCuboidShape(8.0, 0.0, 7.0, 16.0, 16.0, 9.0);
-    protected static final VoxelShape EAST_SHAPE_A = Block.createCuboidShape(7.0, 0.0, 0.0, 9.0, 16.0, 8.0);
-    protected static final VoxelShape EAST_SHAPE_B = Block.createCuboidShape(7.0, 0.0, 8.0, 9.0, 16.0, 16.0);
-    protected static final VoxelShape WEST_SHAPE_A = Block.createCuboidShape(7.0, 0.0, 0.0, 9.0, 16.0, 8.0);
-    protected static final VoxelShape WEST_SHAPE_B = Block.createCuboidShape(7.0, 0.0, 8.0, 9.0, 16.0, 16.0);
+    protected static final VoxelShape Z_AXIS_SHAPE = Block.createCuboidShape(0.0, 0.0, 7.0, 16.0, 16.0, 9.0);
+    protected static final VoxelShape X_AXIS_SHAPE = Block.createCuboidShape(7.0, 0.0, 0.0, 9.0, 16.0, 16.0);
+    protected static final VoxelShape IN_WALL_Z_AXIS_SHAPE = Block.createCuboidShape(0.0, 0.0, 7.0, 16.0, 16.0, 9.0);
+    protected static final VoxelShape IN_WALL_X_AXIS_SHAPE = Block.createCuboidShape(7.0, 0.0, 0.0, 9.0, 16.0, 16.0);
+    protected static final VoxelShape Z_AXIS_COLLISION_SHAPE = Block.createCuboidShape(0.0, 0.0, 6.0, 16.0, 16.0, 10.0);
+    protected static final VoxelShape X_AXIS_COLLISION_SHAPE = Block.createCuboidShape(6.0, 0.0, 0.0, 10.0, 16.0, 16.0);
+    protected static final VoxelShape Z_AXIS_CULL_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 5.0, 7.0, 2.0, 16.0, 9.0), Block.createCuboidShape(14.0, 5.0, 7.0, 16.0, 16.0, 9.0));
+    protected static final VoxelShape X_AXIS_CULL_SHAPE = VoxelShapes.union(Block.createCuboidShape(7.0, 5.0, 0.0, 9.0, 16.0, 2.0), Block.createCuboidShape(7.0, 5.0, 14.0, 9.0, 16.0, 16.0));
+    protected static final VoxelShape IN_WALL_Z_AXIS_CULL_SHAPE = VoxelShapes.union(Block.createCuboidShape(0.0, 2.0, 7.0, 2.0, 13.0, 9.0), Block.createCuboidShape(14.0, 2.0, 7.0, 16.0, 13.0, 9.0));
+    protected static final VoxelShape IN_WALL_X_AXIS_CULL_SHAPE = VoxelShapes.union(Block.createCuboidShape(7.0, 2.0, 0.0, 9.0, 13.0, 2.0), Block.createCuboidShape(7.0, 2.0, 14.0, 9.0, 13.0, 16.0));
 
     public TempGateBlockUnused(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH)).with(OPEN, false)).with(HINGE, DoorHinge.LEFT)).with(POWERED, false)).with(HALF, DoubleBlockHalf.LOWER));
+        this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(OPEN, false)).with(POWERED, false)).with(IN_WALL, false)).with(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
-        Direction direction = state.get(FACING);
-        boolean bl = state.get(OPEN) == false;
-        boolean bl2 = state.get(HINGE) == DoorHinge.RIGHT;
-        switch (direction) {
-            default: {
-                return bl ? WEST_SHAPE : (bl2 ? SOUTH_SHAPE : NORTH_SHAPE);
-            }
-            case SOUTH: {
-                return bl ? NORTH_SHAPE : (bl2 ? WEST_SHAPE : EAST_SHAPE);
-            }
-            case WEST: {
-                return bl ? EAST_SHAPE : (bl2 ? NORTH_SHAPE : SOUTH_SHAPE);
-            }
-            case NORTH:
+        if (state.get(IN_WALL).booleanValue()) {
+            return state.get(FACING).getAxis() == Direction.Axis.X ? IN_WALL_X_AXIS_SHAPE : IN_WALL_Z_AXIS_SHAPE;
         }
-        return bl ? SOUTH_SHAPE : (bl2 ? EAST_SHAPE : WEST_SHAPE);
+        return state.get(FACING).getAxis() == Direction.Axis.X ? X_AXIS_SHAPE : Z_AXIS_SHAPE;
     }
 
     @Override
@@ -238,5 +227,4 @@ public class TempGateBlockUnused
     public static boolean isWoodenDoor(BlockState state) {
         return state.getBlock() instanceof net.minecraft.block.DoorBlock && (state.getMaterial() == Material.WOOD || state.getMaterial() == Material.NETHER_WOOD);
     }
-}
-
+}*/

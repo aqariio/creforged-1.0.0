@@ -2,7 +2,7 @@ package aqario.oubliette.block;
 
 import aqario.oubliette.Oubliette;
 import aqario.oubliette.block.blocks.IronGateBlock;
-import aqario.oubliette.block.blocks.TempGateBlockUnused;
+import aqario.oubliette.block.blocks.IronGrateBlock;
 import aqario.oubliette.block.blocks.ModStairsBlock;
 import aqario.oubliette.item.OublietteGroup;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
@@ -41,6 +41,8 @@ public class ModBlock {
     public static final net.minecraft.block.Block IRON_GATE = registerBlock("iron_gate",
             new IronGateBlock(FabricBlockSettings.of(Material.METAL).mapColor(MapColor.CLEAR).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL).nonOpaque()), OublietteGroup.OUBLIETTE);
 
+    public static final net.minecraft.block.Block IRON_GRATE = registerBlock("iron_grate",
+            new IronGrateBlock(FabricBlockSettings.of(Material.METAL).mapColor(MapColor.CLEAR).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.METAL).nonOpaque()), OublietteGroup.OUBLIETTE);
 
 
     // Registering Block

@@ -7,7 +7,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "oubliette:iron_gate"
+          "name": "oubliette:iron_grate"
         }
       ],
       "conditions": [

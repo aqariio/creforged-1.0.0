@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "oubliette",
-  "version": "1.0.0",
+  "version": "1.0",
 
   "name": "Oubliette",
   "description": "Dungeons and catacombs",
@@ -9,8 +9,8 @@
     "aqario"
   ],
   "contact": {
-    "homepage": "https://github.com/aqariio/creforged-1.0.0",
-    "sources": "https://github.com/aqariio/creforged-1.0.0"
+    "homepage": "https://github.com/aqariio/oubliette",
+    "sources": "https://github.com/aqariio/oubliette"
   },
 
   "license": "MIT",

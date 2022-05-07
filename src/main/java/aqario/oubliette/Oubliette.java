@@ -1,6 +1,7 @@
 package aqario.oubliette;
 
 import aqario.oubliette.block.ModBlock;
+import aqario.oubliette.block.blocks.IronGateBlock;
 import aqario.oubliette.item.ModItem;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
