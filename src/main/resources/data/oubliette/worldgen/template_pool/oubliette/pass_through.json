@@ -1,6 +1,6 @@
 {
   "name": "oubliette:oubliette/pass_through",
-  "fallback": "minecraft:empty",
+  "fallback": "oubliette:oubliette/terminator",
   "elements": [
     {
       "weight": 1,

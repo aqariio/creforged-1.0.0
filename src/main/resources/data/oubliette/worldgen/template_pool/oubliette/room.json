@@ -6,9 +6,18 @@
   "fallback": "oubliette:oubliette/terminator",
   "elements": [
     {
-      "weight": 1,
+      "weight": 4,
       "element": {
-        "location": "oubliette:cell",
+        "location": "oubliette:tunnel",
+        "processors": "minecraft:empty",
+        "projection": "rigid",
+        "element_type": "minecraft:single_pool_element"
+      }
+    },
+    {
+      "weight": 2,
+      "element": {
+        "location": "oubliette:pass_through",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
@@ -17,7 +26,7 @@
     {
       "weight": 1,
       "element": {
-        "location": "oubliette:pass_through",
+        "location": "oubliette:cell",
         "processors": "minecraft:empty",
         "projection": "rigid",
         "element_type": "minecraft:single_pool_element"
