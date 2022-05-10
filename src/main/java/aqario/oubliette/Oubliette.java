@@ -1,21 +1,22 @@
 package aqario.oubliette;
 
-import aqario.oubliette.block.ModBlock;
-import aqario.oubliette.block.blocks.IronGateBlock;
-import aqario.oubliette.item.ModItem;
+import aqario.oubliette.block.Block;
+import aqario.oubliette.item.Item;
+import aqario.oubliette.world.structure.Structure;
 import net.fabricmc.api.ModInitializer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Oubliette implements ModInitializer {
+
+	public static final Logger LOGGER = LogManager.getLogger();
 	public static final String MODID = "oubliette";
-	public static final Logger LOGGER = LoggerFactory.getLogger("Oubliette");
 
 	@Override
 	public void onInitialize() {
 
-		ModItem.initialize();
-		ModBlock.initialize();
-
+		Item.initialize();
+		Block.initialize();
+		Structure.registerStructureFeatures();
 	}
 }

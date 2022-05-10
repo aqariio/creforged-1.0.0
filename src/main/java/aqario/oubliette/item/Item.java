@@ -6,7 +6,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-public class ModItem {
+public class Item {
 
     public static final net.minecraft.item.Item RUBY = registerItem("ruby",
             new net.minecraft.item.Item(new FabricItemSettings()));

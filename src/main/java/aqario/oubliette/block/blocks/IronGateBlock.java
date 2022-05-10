@@ -31,7 +31,7 @@ public class IronGateBlock
     public static final DirectionProperty FACING = HorizontalFacingBlock.FACING;
     public static final BooleanProperty OPEN = Properties.OPEN;
     public static final BooleanProperty POWERED = Properties.POWERED;
-    //public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
+    public static final EnumProperty<DoubleBlockHalf> HALF = Properties.DOUBLE_BLOCK_HALF;
     protected static final VoxelShape Z_AXIS_SHAPE = Block.createCuboidShape(0.0, 0.0, 7.0, 16.0, 16.0, 9.0);
     protected static final VoxelShape X_AXIS_SHAPE = Block.createCuboidShape(7.0, 0.0, 0.0, 9.0, 16.0, 16.0);
     protected static final VoxelShape Z_AXIS_COLLISION_SHAPE = Block.createCuboidShape(0.0, 0.0, 6.0, 16.0, 16.0, 10.0);
@@ -131,6 +131,9 @@ public class IronGateBlock
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        if (Properties.POWERED.equals(true)) {
+            return ActionResult.PASS;
+        }
         if (state.get(OPEN).booleanValue()) {
             state = (BlockState)state.with(OPEN, false);
             world.setBlockState(pos, state, Block.NOTIFY_LISTENERS | Block.REDRAW_ON_MAIN_THREAD);
