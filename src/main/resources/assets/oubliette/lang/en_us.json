@@ -3,6 +3,8 @@
 
   "item.oubliette.ruby": "Ruby",
   "item.oubliette.bedrock_fragment": "Bedrock Fragment",
+  "item.oubliette.lightning_rod": "Lightning Rod",
+  "item.oubliette.bonebow": "Bonebow",
 
   "block.oubliette.iron_plating": "Iron Plating",
   "block.oubliette.tarnished_iron_plating": "Tarnished Iron Plating",
@@ -13,6 +15,11 @@
   "block.oubliette.aged_brick_wall": "Aged Brick Wall",
   "block.oubliette.iron_gate": "Iron Gate",
   "block.oubliette.iron_grate": "Iron Grate",
+
+  "item.minecraft.potion.effect.decay": "Potion of Decay",
+  "item.minecraft.splash_potion.effect.decay": "Splash Potion of Decay",
+  "item.minecraft.lingering_potion.effect.decay": "Lingering Potion of Decay",
+  "item.minecraft.tipped_arrow.effect.decay": "Arrow of Decay",
 
   "advancements.adventure.bedrock_fragment.title": "A Fragment of Thought",
   "advancements.adventure.bedrock_fragment.description": "Collect the shard of the broken blade"

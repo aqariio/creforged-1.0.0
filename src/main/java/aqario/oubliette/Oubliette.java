@@ -1,7 +1,8 @@
 package aqario.oubliette;
 
-import aqario.oubliette.block.Block;
-import aqario.oubliette.item.Item;
+import aqario.oubliette.block.BlockInit;
+import aqario.oubliette.item.ItemInit;
+import aqario.oubliette.potion.Potion;
 import aqario.oubliette.world.structure.Structure;
 import net.fabricmc.api.ModInitializer;
 import org.apache.logging.log4j.LogManager;
@@ -15,8 +16,9 @@ public class Oubliette implements ModInitializer {
 	@Override
 	public void onInitialize() {
 
-		Item.initialize();
-		Block.initialize();
+		ItemInit.initialize();
+		BlockInit.initialize();
 		Structure.registerStructureFeatures();
+		Potion.registerPotions();
 	}
 }

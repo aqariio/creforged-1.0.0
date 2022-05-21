@@ -1,5 +1,5 @@
 {
-	"credit": "Made with Blockbench",
+	"parent": "minecraft:block/template_orientable_trapdoor_bottom",
 	"textures": {
 		"0": "oubliette:block/iron_grate",
 		"particle": "oubliette:block/iron_grate"

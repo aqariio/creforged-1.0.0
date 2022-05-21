@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "oubliette:iron_gate"
+    ]
+  },
+  "criteria": {
+    "has_bars": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "minecraft:iron_bars"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "oubliette:iron_gate"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_bars",
+      "has_the_recipe"
+    ]
+  ]
+}

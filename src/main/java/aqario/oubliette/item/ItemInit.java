@@ -1,18 +1,21 @@
 package aqario.oubliette.item;
 
 import aqario.oubliette.Oubliette;
+import aqario.oubliette.item.items.LightningRodItem;
+import aqario.oubliette.item.items.LongbowItem;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
+import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Rarity;
 import net.minecraft.util.registry.Registry;
 
-public class Item {
-
-    public static final net.minecraft.item.Item RUBY = registerItem("ruby",
-            new net.minecraft.item.Item(new FabricItemSettings()));
+public class ItemInit {
 
     public static final net.minecraft.item.Item BEDROCK_FRAGMENT = registerItem("bedrock_fragment",
-            new net.minecraft.item.Item(new FabricItemSettings().rarity(Rarity.EPIC)));
+            new Item(new FabricItemSettings().rarity(Rarity.EPIC)));
+
+    public static final net.minecraft.item.Item BONEBOW = registerItem("bonebow",
+            new LongbowItem(new FabricItemSettings().maxDamage(640).group(OublietteGroup.OUBLIETTE)));
 
 
 

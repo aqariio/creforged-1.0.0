@@ -42,7 +42,7 @@ public class IronGateBlock
 
     public IronGateBlock(AbstractBlock.Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)/*((BlockState)*/((BlockState)((BlockState)this.stateManager.getDefaultState()).with(OPEN, false)).with(FACING, Direction.NORTH)).with(POWERED, false))/*.with(HALF, DoubleBlockHalf.LOWER))*/;
+        this.setDefaultState((BlockState)((BlockState)((BlockState)((BlockState)((BlockState)this.stateManager.getDefaultState()).with(OPEN, false)).with(FACING, Direction.NORTH)).with(POWERED, false)).with(HALF, DoubleBlockHalf.LOWER));
     }
 
     @Override
@@ -52,8 +52,8 @@ public class IronGateBlock
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState neighborState, WorldAccess world, BlockPos pos, BlockPos neighborPos) {
-        //DoubleBlockHalf doubleBlockHalf = state.get(HALF);
-        /*if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP)) {
+        DoubleBlockHalf doubleBlockHalf = state.get(HALF);
+        if (direction.getAxis() == Direction.Axis.Y && doubleBlockHalf == DoubleBlockHalf.LOWER == (direction == Direction.UP)) {
             if (neighborState.isOf(this) && neighborState.get(HALF) != doubleBlockHalf) {
                 return (BlockState)((BlockState)((BlockState)((BlockState)state.with(FACING, neighborState.get(FACING))).with(OPEN, neighborState.get(OPEN)))).with(POWERED, neighborState.get(POWERED));
             }
@@ -61,17 +61,17 @@ public class IronGateBlock
         }
         if (doubleBlockHalf == DoubleBlockHalf.LOWER && direction == Direction.DOWN && !state.canPlaceAt(world, pos)) {
             return Blocks.AIR.getDefaultState();
-        }*/
+        }
         return super.getStateForNeighborUpdate(state, direction, neighborState, world, pos, neighborPos);
     }
 
-    /*@Override
+    @Override
     public void onBreak(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!world.isClient && player.isCreative()) {
             onBreakInCreative.onBreakInCreative(world, pos, state, player);
         }
         super.onBreak(world, pos, state, player);
-    }*/
+    }
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
@@ -118,12 +118,11 @@ public class IronGateBlock
 
     }
 
-    /*@Override
+    @Override
     public void onPlaced(World world, BlockPos pos, BlockState state, LivingEntity placer, ItemStack itemStack) {
         world.setBlockState(pos.up(), (BlockState)state.with(HALF, DoubleBlockHalf.UPPER), Block.NOTIFY_ALL);
     }
 
-     */
 
     private boolean isWall(BlockState state) {
         return state.isIn(BlockTags.WALLS);
@@ -166,7 +165,7 @@ public class IronGateBlock
         }
     }
 
-    /*@Override
+    @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
         BlockPos blockPos = pos.down();
         BlockState blockState = world.getBlockState(blockPos);
@@ -175,7 +174,6 @@ public class IronGateBlock
         }
         return blockState.isOf(this);
     }
-     */
 
     @Override
     public PistonBehavior getPistonBehavior(BlockState state) {
@@ -184,7 +182,7 @@ public class IronGateBlock
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(FACING, OPEN, POWERED);
+        builder.add(FACING, OPEN, POWERED, HALF);
     }
 
     public static boolean canWallConnect(BlockState state, Direction side) {

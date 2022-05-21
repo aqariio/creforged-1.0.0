@@ -1,0 +1,6 @@
+{
+  "parent": "oubliette:item/bonebow",
+  "textures": {
+    "layer0": "oubliette:item/bonebow_pulling_1"
+  }
+}

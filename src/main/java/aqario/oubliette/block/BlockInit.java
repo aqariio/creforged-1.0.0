@@ -15,13 +15,13 @@ import net.minecraft.sound.BlockSoundGroup;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
-public class Block {
+public class BlockInit {
 
     public static final net.minecraft.block.Block IRON_PLATING = registerBlock("iron_plating",
-            new OxidizableBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.of(Material.METAL).mapColor(MapColor.IRON_GRAY).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.COPPER)), OublietteGroup.OUBLIETTE);
+            new OxidizableBlock(Oxidizable.OxidationLevel.UNAFFECTED, FabricBlockSettings.of(Material.METAL).mapColor(MapColor.IRON_GRAY).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.COPPER)), null);
 
     public static final net.minecraft.block.Block TARNISHED_IRON_PLATING = registerBlock("tarnished_iron_plating",
-            new OxidizableBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.of(Material.METAL).mapColor(MapColor.DULL_RED).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.COPPER)), OublietteGroup.OUBLIETTE);
+            new OxidizableBlock(Oxidizable.OxidationLevel.EXPOSED, FabricBlockSettings.of(Material.METAL).mapColor(MapColor.DULL_RED).requiresTool().strength(5.0f, 6.0f).sounds(BlockSoundGroup.COPPER)), null);
 
     public static final net.minecraft.block.Block AGED_BRICKS = registerBlock("aged_bricks",
             new net.minecraft.block.Block(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().strength(1500.0f, 6000.0f).sounds(BlockSoundGroup.DEEPSLATE_BRICKS)), OublietteGroup.OUBLIETTE);
@@ -33,7 +33,7 @@ public class Block {
             new SlabBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().strength(1500.0f, 6000.0f).sounds(BlockSoundGroup.DEEPSLATE_BRICKS)), OublietteGroup.OUBLIETTE);
 
     public static final net.minecraft.block.Block AGED_BRICK_STAIRS = registerBlock("aged_brick_stairs",
-            new ModStairsBlock(Block.AGED_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().strength(1500.0f, 6000.0f).sounds(BlockSoundGroup.DEEPSLATE_BRICKS)), OublietteGroup.OUBLIETTE);
+            new ModStairsBlock(BlockInit.AGED_BRICKS.getDefaultState(), FabricBlockSettings.of(Material.STONE).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().strength(1500.0f, 6000.0f).sounds(BlockSoundGroup.DEEPSLATE_BRICKS)), OublietteGroup.OUBLIETTE);
 
     public static final net.minecraft.block.Block AGED_BRICK_WALL = registerBlock("aged_brick_wall",
             new WallBlock(FabricBlockSettings.of(Material.STONE).mapColor(MapColor.TERRACOTTA_BROWN).requiresTool().strength(1500.0f, 6000.0f).sounds(BlockSoundGroup.DEEPSLATE_BRICKS)), OublietteGroup.OUBLIETTE);
